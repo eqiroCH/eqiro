@@ -40,7 +40,7 @@ export const projects = [
     title: "Salottino",
     category: "Gastronomie",
     url: "https://salottinoweb.netlify.app",
-    description: "Die ursprüngliche Website von Salottino war veraltet und nicht mobilfreundlich. Wir haben sie komplett überarbeitet.",
+    description: "Modernes Redesign für ein italienisches Restaurant. Mobil optimiert und mit digitaler Speisekarte.",
     solution: "Ein modernes, responsives Design, das die Atmosphäre des Restaurants widerspiegelt und auf allen Geräten perfekt funktioniert.",
     benefits: [
       "Digitale Speisekarte",
@@ -53,7 +53,7 @@ export const projects = [
     title: "Baris Barbershop",
     category: "Barbershop",
     url: "https://baris-barbershop.netlify.app",
-    description: "Baris brauchte eine moderne Webpräsenz, um sein Handwerk online zu zeigen und Kunden anzusprechen.",
+    description: "Stilvolle Landingpage für einen Barbershop. Fokus auf Services und einfache Kontaktaufnahme.",
     solution: "Eine stilvolle Landingpage mit klarem Fokus auf Dienstleistungen und Atmosphäre.",
     benefits: [
       "Starker visueller Auftritt",
@@ -66,7 +66,7 @@ export const projects = [
     title: "Agenzy",
     category: "Agentur",
     url: "https://agenzy.ch",
-    description: "Eine Webpräsenz für eine moderne Agentur, die Professionalität und Kreativität ausstrahlen muss.",
+    description: "Professionelle Webpräsenz für eine Kreativagentur. Clean, performant und portfolio-zentriert.",
     solution: "Eine cleane, leistungsstarke Website, die das Portfolio und die Expertise der Agentur unterstreicht.",
     benefits: [
       "Klares Branding",

@@ -7,11 +7,11 @@ export default function Hero() {
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6 leading-tight">
-            Moderne Websites für lokale Unternehmen – <span className="text-blue-600">schnell, klar und stark.</span>
+            Moderne Websites für Ihr Unternehmen – <span className="text-blue-600">schnell, klar und stark.</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Wir erstellen professionelle Websites, die einfach bedienbar sind und Ihre Kunden überzeugen.
+            Professionelle Websites, die einfach bedienbar sind und überzeugen.
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center space-y-3 md:space-y-0 md:space-x-8 mb-12 text-gray-700 font-medium">
