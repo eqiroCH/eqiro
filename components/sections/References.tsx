@@ -34,7 +34,7 @@ export default function References() {
 
             <div className="pt-6 border-t border-gray-100 mt-auto">
               <h4 className="text-sm font-bold text-gray-900 mb-3">Das Ergebnis:</h4>
-              <ul className="space-y-2">
+              <ul className="space-y-2 mb-6">
                 {project.benefits.map((benefit, idx) => (
                   <li key={idx} className="flex items-start text-sm text-gray-700">
                     <span className="text-blue-500 mr-2">•</span>
@@ -42,6 +42,20 @@ export default function References() {
                   </li>
                 ))}
               </ul>
+
+              {project.url && (
+                <a 
+                  href={project.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  Website besuchen
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              )}
             </div>
           </Card>
         ))}
@@ -49,4 +63,3 @@ export default function References() {
     </Section>
   );
 }
-

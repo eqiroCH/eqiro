@@ -36,37 +36,55 @@ export const services = [
 
 export const projects = [
   {
-    id: "dd-barber",
-    title: "DD-Barber",
-    category: "Barbershop",
-    description: "Der lokale Barber hatte keine Online-Präsenz. Termine wurden nur per Telefon vereinbart, was oft störte.",
-    solution: "Wir haben einen coolen Onepager im 'Dark Mode' gebaut mit direkter Integration eines Booking-Tools.",
-    benefits: [
-      "80% der Termine jetzt online gebucht",
-      "Weniger Telefonklingeln im Laden",
-      "Starker visueller Auftritt"
-    ]
-  },
-  {
+    id: "salottino",
     title: "Salottino",
-    category: "Italienisches Restaurant",
-    description: "Das Restaurant hatte eine PDF-Speisekarte, die auf dem Handy nicht lesbar war.",
-    solution: "Eine responsive Website mit digitaler Speisekarte und Tischreservierung.",
+    category: "Gastronomie",
+    url: "https://salottinoweb.netlify.app",
+    description: "Die ursprüngliche Website von Salottino war veraltet und nicht mobilfreundlich. Wir haben sie komplett überarbeitet.",
+    solution: "Ein modernes, responsives Design, das die Atmosphäre des Restaurants widerspiegelt und auf allen Geräten perfekt funktioniert.",
     benefits: [
-      "Speisekarte perfekt lesbar auf Handy",
-      "Google Maps Integration für Anfahrt",
-      "Mehr Reservierungen am Wochenende"
+      "Digitale Speisekarte",
+      "Verbesserte mobile Darstellung",
+      "Hochwertiges Design"
     ]
   },
   {
-    title: "AutoGarage Meier",
-    category: "KFZ-Werkstatt",
-    description: "Die alte Website war nicht SSL-verschlüsselt und sah auf Tablets kaputt aus.",
-    solution: "Kompletter Relaunch mit Fokus auf Vertrauen und klare Dienstleistungen.",
+    id: "baris-barbershop",
+    title: "Baris Barbershop",
+    category: "Barbershop",
+    url: "https://baris-barbershop.netlify.app",
+    description: "Baris brauchte eine moderne Webpräsenz, um sein Handwerk online zu zeigen und Kunden anzusprechen.",
+    solution: "Eine stilvolle Landingpage mit klarem Fokus auf Dienstleistungen und Atmosphäre.",
     benefits: [
-      "Seriöser Auftritt schafft Vertrauen",
-      "Kontaktformular für Offerten",
-      "Gute Auffindbarkeit in der Region"
+      "Starker visueller Auftritt",
+      "Einfache Übersicht der Services",
+      "Direkte Kontaktmöglichkeit"
+    ]
+  },
+  {
+    id: "sondergrillz",
+    title: "Sondergrillz",
+    category: "E-Commerce / Schmuck",
+    url: "https://sondergrillz.ch",
+    description: "Ein Nischen-Shop für individuellen Zahnschmuck benötigte einen professionellen Auftritt.",
+    solution: "Ein auffälliges Design, das die Produkte in den Mittelpunkt stellt und die Marke stärkt.",
+    benefits: [
+      "Zielgruppengerechtes Design",
+      "Fokus auf Produktpräsentation",
+      "Markenbildung"
+    ]
+  },
+  {
+    id: "agenzy",
+    title: "Agenzy",
+    category: "Agentur",
+    url: "https://agenzy.ch",
+    description: "Eine Webpräsenz für eine moderne Agentur, die Professionalität und Kreativität ausstrahlen muss.",
+    solution: "Eine cleane, leistungsstarke Website, die das Portfolio und die Expertise der Agentur unterstreicht.",
+    benefits: [
+      "Klares Branding",
+      "Performance-optimiert",
+      "Professionelle Außenwirkung"
     ]
   }
 ];
@@ -122,14 +140,17 @@ export const pricingPackages = [
 
 export const teamMembers = [
   {
-    name: "Alex",
-    role: "Entwicklung & Technik",
-    description: "Liebt sauberen Code und schnelle Ladezeiten. Sorgt dafür, dass technisch alles rund läuft."
+    name: "Lion Hereqi",
+    role: "Fullstack Developer",
+    email: "hereqilion@gmail.com",
+    github: "https://github.com/hereqi",
+    description: "Mit 4 Jahren Erfahrung in der Fullstack-Entwicklung baut Lion performante und skalierbare Web-Lösungen."
   },
   {
-    name: "Sarah",
-    role: "Design & Struktur",
-    description: "Hat den Blick fürs Detail und sorgt dafür, dass deine Kunden sich auf der Seite sofort zurechtfinden."
+    name: "Mustafa Sagaaro",
+    role: "Fullstack Developer",
+    email: "sagaaromustafa@gmail.com",
+    github: "https://github.com/mustafa-sagaaro",
+    description: "Spezialisiert auf komplexe Webanwendungen und sauberen Code. Mustafa bringt 4 Jahre Erfahrung in jedes Projekt ein."
   }
 ];
-
