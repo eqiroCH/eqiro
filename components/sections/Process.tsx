@@ -1,19 +1,13 @@
-"use client";
-
 import React from 'react';
 import Section from '../Section';
-import { getProcessSteps } from '@/lib/data';
-import { useLanguage } from '@/lib/LanguageContext';
+import { processSteps } from '@/lib/data';
 
 export default function Process() {
-  const { t, language } = useLanguage();
-  const processSteps = getProcessSteps(language);
-
   return (
     <Section 
       id="ablauf" 
-      title={t.process.title}
-      subtitle={t.process.subtitle}
+      title="So arbeiten wir zusammen" 
+      subtitle="Einfach, transparent und ohne versteckte Kosten."
       background="white"
     >
       <div className="max-w-4xl mx-auto">
@@ -53,3 +47,4 @@ export default function Process() {
     </Section>
   );
 }
+

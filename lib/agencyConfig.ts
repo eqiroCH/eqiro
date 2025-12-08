@@ -4,13 +4,13 @@ export const agencyConfig = {
   contactEmail: "contact@eqiro.ch",
   contactPhone: "076 310 18 11",
   whatsappLink: "https://wa.me/41763101811",
-  location: "Schweiz",
+  location: "Region Zürich",
   
   // Navigation Links
   navLinks: [
-    { name: "Projekte", href: "#referenzen" },
+    { name: "Referenzen", href: "#referenzen" },
     { name: "Ablauf", href: "#ablauf" },
-    { name: "Angebot", href: "#preise" },
+    { name: "Preise", href: "#preise" },
     { name: "Über uns", href: "#ueber-uns" },
     { name: "Kontakt", href: "#kontakt" },
   ],

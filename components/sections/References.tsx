@@ -1,20 +1,14 @@
-"use client";
-
 import React from 'react';
 import Section from '../Section';
 import Card from '../Card';
-import { getProjects } from '@/lib/data';
-import { useLanguage } from '@/lib/LanguageContext';
+import { projects } from '@/lib/data';
 
 export default function References() {
-  const { t, language } = useLanguage();
-  const projects = getProjects(language);
-
   return (
     <Section 
       id="referenzen" 
-      title={t.references.title}
-      subtitle={t.references.subtitle}
+      title="Ausgewählte Projekte" 
+      subtitle="Websites, die nicht nur gut aussehen, sondern Probleme lösen."
       background="gray"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -41,7 +35,7 @@ export default function References() {
                   />
                  ) : (
                    <div className="w-full h-full flex items-center justify-center bg-gray-50 text-gray-400 text-sm">
-                     {t.references.previewUnavailable}
+                     Vorschau nicht verfügbar
                    </div>
                  )}
                  {/* Overlay to catch clicks and prevent interaction with iframe */}
@@ -75,7 +69,7 @@ export default function References() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors group-hover:underline"
                 >
-                  {t.references.visitWebsite}
+                  Website besuchen
                   <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
