@@ -1,7 +1,6 @@
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import Hero from '@/components/sections/Hero';
-import Services from '@/components/sections/Services';
 import References from '@/components/sections/References';
 import Process from '@/components/sections/Process';
 import Pricing from '@/components/sections/Pricing';
@@ -14,7 +13,6 @@ export default function Home() {
       <NavBar />
       <main className="flex-grow">
         <Hero />
-        <Services />
         <References />
         <Process />
         <Pricing />

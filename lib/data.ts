@@ -132,7 +132,8 @@ export const teamMembers = [
     email: "hereqilion@gmail.com",
     github: "https://github.com/hereqi",
     linkedin: "https://www.linkedin.com/in/lion-h-3b394b333/",
-    description: "Mit 4 Jahren Erfahrung in der Fullstack-Entwicklung baut Lion performante und skalierbare Web-Lösungen."
+    instagram: "https://instagram.com/lioxhe",
+    description: "Ambitionierter Fullstack Developer. Spezialisiert auf moderne Web-Technologien und nutzerfreundliche Interfaces."
   },
   {
     name: "Mustafa Sagaaro",
@@ -140,6 +141,7 @@ export const teamMembers = [
     email: "sagaaromustafa@gmail.com",
     github: "https://github.com/mustafa-sagaaro",
     linkedin: "https://www.linkedin.com/in/mustafa-sagaaro-26166827a/",
-    description: "Spezialisiert auf komplexe Webanwendungen und sauberen Code. Mustafa bringt 4 Jahre Erfahrung in jedes Projekt ein."
+    instagram: "https://instagram.com/mustafazh_",
+    description: "Passionierter Entwickler mit Fokus auf komplexe Webanwendungen und saubere Code-Architektur."
   }
 ];
