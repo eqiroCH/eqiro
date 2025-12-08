@@ -62,19 +62,6 @@ export const projects = [
     ]
   },
   {
-    id: "sondergrillz",
-    title: "Sondergrillz",
-    category: "E-Commerce / Schmuck",
-    url: "https://sondergrillz.ch",
-    description: "Ein Nischen-Shop für individuellen Zahnschmuck benötigte einen professionellen Auftritt.",
-    solution: "Ein auffälliges Design, das die Produkte in den Mittelpunkt stellt und die Marke stärkt.",
-    benefits: [
-      "Zielgruppengerechtes Design",
-      "Fokus auf Produktpräsentation",
-      "Markenbildung"
-    ]
-  },
-  {
     id: "agenzy",
     title: "Agenzy",
     category: "Agentur",
