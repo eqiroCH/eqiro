@@ -121,19 +121,19 @@ export const pricingPackages = [
   {
     name: "Starter",
     description: "Der schnelle Einstieg.",
-    priceLabel: "ab CHF 1'500",
+    priceLabel: "Auf Anfrage",
     features: ["Onepager Layout", "Texte inklusive", "Mobil optimiert", "Kontaktformular", "Impressum & Datenschutz"]
   },
   {
     name: "Business",
     description: "Der Standard für KMU.",
-    priceLabel: "ab CHF 2'800",
+    priceLabel: "Auf Anfrage",
     features: ["Bis zu 7 Unterseiten", "SEO-Setup", "Google Business Profil", "CMS-Schulung (optional)", "Support inklusive"]
   },
   {
     name: "Plus",
     description: "Individuelle Lösungen.",
-    priceLabel: "auf Anfrage",
+    priceLabel: "Auf Anfrage",
     features: ["Webshop-Integration", "Spezielle Schnittstellen", "Umfangreiche Migration", "Laufende Betreuung", "Marketing-Setup"]
   }
 ];
@@ -144,6 +144,7 @@ export const teamMembers = [
     role: "Fullstack Developer",
     email: "hereqilion@gmail.com",
     github: "https://github.com/hereqi",
+    linkedin: "https://www.linkedin.com/in/lion-h-3b394b333/",
     description: "Mit 4 Jahren Erfahrung in der Fullstack-Entwicklung baut Lion performante und skalierbare Web-Lösungen."
   },
   {
@@ -151,6 +152,7 @@ export const teamMembers = [
     role: "Fullstack Developer",
     email: "sagaaromustafa@gmail.com",
     github: "https://github.com/mustafa-sagaaro",
+    linkedin: "https://www.linkedin.com/in/mustafa-sagaaro-26166827a/",
     description: "Spezialisiert auf komplexe Webanwendungen und sauberen Code. Mustafa bringt 4 Jahre Erfahrung in jedes Projekt ein."
   }
 ];
