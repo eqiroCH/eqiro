@@ -37,6 +37,11 @@ In der Datei `lib/agencyConfig.ts` kannst du zentrale Einstellungen ändern:
 - WhatsApp-Link
 - Standort
 
+### Logo & Icons
+- **Logo in Navbar:** Tausche das Bild in `components/NavBar.tsx` aus. Platziere dein Logo (z.B. `eqiro-logo.png`) im `public`-Ordner.
+- **Favicon / Browser-Tab:** Lege dein Logo als `eqiro-logo.png` (oder `.ico`) in den `public`-Ordner. Der Verweis darauf befindet sich in `app/layout.tsx` im `metadata`-Objekt.
+- **Seitentitel:** Der globale Seitentitel ("Eqiro") wird ebenfalls in `app/layout.tsx` definiert (`metadata.title`).
+
 ### Inhalte (Texte, Preise, Projekte)
 Alle Inhalte sind strukturiert in `lib/data.ts` abgelegt. Hier kannst du einfach die Texte, Listen und Objekte bearbeiten, um:
 - Leistungen anzupassen

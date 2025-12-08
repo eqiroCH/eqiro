@@ -1,14 +1,20 @@
+"use client";
+
 import React from 'react';
 import Section from '../Section';
 import Card from '../Card';
-import { teamMembers } from '@/lib/data';
+import { getTeamMembers } from '@/lib/data';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function About() {
+  const { t, language } = useLanguage();
+  const teamMembers = getTeamMembers(language);
+
   return (
     <Section 
       id="ueber-uns" 
-      title="Wer hinter Eqiro steht" 
-      subtitle="Wir sind zwei erfahrene Fullstack-Entwickler aus der Region Zürich. Unser Ziel: Ehrliche Arbeit ohne Agentur-Kauderwelsch."
+      title={t.about.title}
+      subtitle={t.about.subtitle}
       background="white"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
