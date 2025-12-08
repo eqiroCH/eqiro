@@ -1,7 +1,7 @@
 export const agencyConfig = {
-  agencyName: "Studio NextWeb",
+  agencyName: "Eqiro",
   tagline: "Moderne Websites für lokale Unternehmen",
-  contactEmail: "hallo@studio-nextweb.ch",
+  contactEmail: "hallo@eqiro.ch",
   contactPhone: "+41 44 123 45 67",
   whatsappLink: "https://wa.me/41791234567", // Platzhalter
   location: "Region Zürich",
@@ -16,4 +16,3 @@ export const agencyConfig = {
     { name: "Kontakt", href: "#kontakt" },
   ],
 };
-

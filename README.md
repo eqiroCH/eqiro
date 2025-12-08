@@ -1,4 +1,4 @@
-# Studio NextWeb - Portfolio Website
+# Eqiro - Portfolio Website
 
 Dies ist eine vollständige, produktionsreife Website für eine kleine Webagentur, erstellt mit Next.js 15, TypeScript und Tailwind CSS.
 
