@@ -8,9 +8,10 @@ export const agencyConfig = {
   
   // Navigation Links
   navLinks: [
-    { name: "Referenzen", href: "#referenzen" },
+    { name: "Projekte", href: "#referenzen" },
     { name: "Ablauf", href: "#ablauf" },
-    { name: "Preise", href: "#preise" },
+    { name: "Kosten", href: "#preise" },
+    { name: "FAQ", href: "#faq" },
     { name: "Über uns", href: "#ueber-uns" },
     { name: "Kontakt", href: "#kontakt" },
   ],

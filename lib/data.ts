@@ -128,6 +128,7 @@ export const pricingPackages = [
 export const teamMembers = [
   {
     name: "Lion Hereqi",
+    highlightPart: "eqi",
     role: "Fullstack Developer",
     email: "hereqilion@gmail.com",
     github: "https://github.com/hereqi",
@@ -136,6 +137,7 @@ export const teamMembers = [
   },
   {
     name: "Mustafa Sagaaro",
+    highlightPart: "ro",
     role: "Fullstack Developer",
     email: "sagaaromustafa@gmail.com",
     github: "https://github.com/mustafa-sagaaro",

@@ -8,7 +8,7 @@ export default function References() {
   return (
     <Section 
       id="referenzen" 
-      title="Ausgewählte Projekte" 
+      title="Das haben wir gebaut" 
       subtitle="Websites, die nicht nur gut aussehen, sondern Probleme lösen."
       background="gray"
     >
