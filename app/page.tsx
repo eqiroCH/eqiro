@@ -6,6 +6,7 @@ import Process from '@/components/sections/Process';
 import Pricing from '@/components/sections/Pricing';
 import About from '@/components/sections/About';
 import Contact from '@/components/sections/Contact';
+import FAQ from '@/components/sections/FAQ';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <References />
         <Process />
         <Pricing />
+        <FAQ />
         <About />
         <Contact />
       </main>
