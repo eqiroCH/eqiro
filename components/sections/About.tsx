@@ -29,7 +29,7 @@ export default function About() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 flex justify-center items-center mb-4">
               <span>Wer hinter</span>
               
-              <div className="relative mx-3 h-12 flex items-center justify-center" style={{ minWidth: '100px' }}>
+              <div className="relative mx-2 h-12 flex items-center justify-center" style={{ minWidth: '85px' }}>
                 {/* The "Eqiro" text - only visible when NOT in view */}
                 <motion.div
                   className="flex items-center"

@@ -1,8 +1,72 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Section from '../Section';
 import Card from '../Card';
 import FadeIn from '../FadeIn';
 import { projects } from '@/lib/data';
+
+// Component for progressive loading: shows placeholder until iframe loads
+function WebsitePreview({ url, title, screenshot }: { url: string; title: string; screenshot?: string }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div className="w-full h-full pt-6 bg-white relative">
+      {/* Screenshot Placeholder - always rendered, fades out when iframe loads */}
+      <div 
+        className={`absolute inset-0 pt-6 z-10 transition-opacity duration-500 ${
+          isLoaded && !hasError ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
+      >
+        {screenshot ? (
+          <img 
+            src={screenshot} 
+            alt={`Vorschau von ${title}`}
+            className="w-full h-full object-cover object-top"
+          />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
+            {/* Loading spinner */}
+            <div className="w-8 h-8 border-2 border-blue-200 border-t-blue-600 rounded-full animate-spin mb-3"></div>
+            <span className="text-xs text-gray-400">Lädt Vorschau...</span>
+          </div>
+        )}
+      </div>
+
+      {/* Iframe - loads in background */}
+      {url && !hasError && (
+        <iframe 
+          src={url} 
+          title={`Vorschau von ${title}`}
+          className={`w-[400%] h-[400%] origin-top-left transform scale-[0.25] border-0 pointer-events-none transition-opacity duration-500 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          loading="lazy"
+          scrolling="no"
+          onLoad={() => setIsLoaded(true)}
+          onError={() => setHasError(true)}
+        />
+      )}
+
+      {/* Error state */}
+      {hasError && (
+        <div className="absolute inset-0 pt-6 flex items-center justify-center bg-gray-50 text-gray-400 text-sm z-10">
+          Vorschau nicht verfügbar
+        </div>
+      )}
+
+      {/* Overlay to catch clicks */}
+      <a 
+        href={url} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="absolute inset-0 z-20 bg-transparent"
+        aria-label={`Besuche ${title}`}
+      />
+    </div>
+  );
+}
 
 export default function References() {
   return (
@@ -25,30 +89,18 @@ export default function References() {
                   <div className="w-2 h-2 rounded-full bg-green-400"></div>
                 </div>
                 
-                {/* Iframe Preview */}
-                <div className="w-full h-full pt-6 bg-white relative">
-                   {project.url ? (
-                    <iframe 
-                      src={project.url} 
-                      title={`Vorschau von ${project.title}`}
-                      className="w-[400%] h-[400%] origin-top-left transform scale-[0.25] border-0 pointer-events-none"
-                      loading="lazy"
-                      scrolling="no"
-                    />
-                   ) : (
-                     <div className="w-full h-full flex items-center justify-center bg-gray-50 text-gray-400 text-sm">
-                       Vorschau nicht verfügbar
-                     </div>
-                   )}
-                   {/* Overlay to catch clicks and prevent interaction with iframe */}
-                   <a 
-                     href={project.url} 
-                     target="_blank" 
-                     rel="noopener noreferrer"
-                     className="absolute inset-0 z-20 bg-transparent"
-                     aria-label={`Besuche ${project.title}`}
-                   />
-                </div>
+                {/* Progressive Loading Preview */}
+                {project.url ? (
+                  <WebsitePreview 
+                    url={project.url} 
+                    title={project.title}
+                    screenshot={project.screenshot}
+                  />
+                ) : (
+                  <div className="w-full h-full pt-6 flex items-center justify-center bg-gray-50 text-gray-400 text-sm">
+                    Vorschau nicht verfügbar
+                  </div>
+                )}
               </div>
 
               {/* Content */}
