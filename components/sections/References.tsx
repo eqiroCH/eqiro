@@ -76,7 +76,7 @@ export default function References() {
       subtitle="Websites, die nicht nur gut aussehen, sondern Probleme lösen."
       background="gray"
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
         {projects.map((project, index) => (
           <FadeIn key={index} delay={index * 0.1}>
             <Card className="!p-0 flex flex-col h-full overflow-hidden group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
@@ -104,15 +104,15 @@ export default function References() {
               </div>
 
               {/* Content */}
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
+              <div className="p-4 md:p-6 flex flex-col flex-grow">
+                <div className="flex items-center justify-between mb-2 md:mb-3">
+                  <h3 className="text-base md:text-xl font-bold text-gray-900">{project.title}</h3>
                   <span className="text-[10px] font-bold tracking-wider text-blue-600 uppercase bg-blue-50 px-2 py-1 rounded-full">
                     {project.category}
                   </span>
                 </div>
                 
-                <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-grow">
+                <p className="text-xs md:text-sm text-gray-600 leading-relaxed mb-3 md:mb-4 flex-grow">
                   {project.description}
                 </p>
 

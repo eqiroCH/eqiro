@@ -17,8 +17,8 @@ export default function Home() {
         <References />
         <Process />
         <Pricing />
-        <FAQ />
         <About />
+        <FAQ />
         <Contact />
       </main>
       <Footer />

@@ -78,7 +78,7 @@ export default function About() {
             
             {/* Subtitle - now directly under the title */}
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Wir sind zwei erfahrene Fullstack-Entwickler aus der Region Zürich. Unser Ziel: Ehrliche Arbeit ohne Agentur-Kauderwelsch.
+              Zwei kreative Köpfe mit Leidenschaft für Qualität. Junge Perspektiven, erfahrene Hände – Fullstack-Entwicklung aus Zürich.
             </p>
           </div>
 

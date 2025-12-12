@@ -11,8 +11,8 @@ export const agencyConfig = {
     { name: "Projekte", href: "#referenzen" },
     { name: "Ablauf", href: "#ablauf" },
     { name: "Kosten", href: "#preise" },
-    { name: "FAQ", href: "#faq" },
     { name: "Über uns", href: "#ueber-uns" },
+    { name: "FAQ", href: "#faq" },
     { name: "Kontakt", href: "#kontakt" },
   ],
 };

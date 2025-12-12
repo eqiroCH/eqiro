@@ -71,7 +71,7 @@ export default function Contact() {
     <Section 
       id="kontakt" 
       title="Lass uns sprechen" 
-      subtitle="Schick uns kurz deine Situation und wir melden uns mit einer ehrlichen Einschätzung – kostenlos und unverbindlich."
+      subtitle="Schick uns kurz deine Situation und wir melden uns schnell mit einer ehrlichen Einschätzung – kostenlos und unverbindlich."
       background="gray"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto items-start">

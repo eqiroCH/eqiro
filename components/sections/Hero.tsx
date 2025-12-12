@@ -43,12 +43,9 @@ export default function Hero() {
           </FadeIn>
 
           <FadeIn direction="up" delay={0.4}>
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center">
               <Button href="#kontakt" variant="primary" className="w-full sm:w-auto text-lg px-8 py-4 shadow-lg shadow-blue-200">
                 Kostenloses Erstgespräch anfragen
-              </Button>
-              <Button href="#referenzen" variant="secondary" className="w-full sm:w-auto text-lg px-8 py-4">
-                Referenzen ansehen
               </Button>
             </div>
           </FadeIn>
