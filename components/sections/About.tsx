@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Section from '../Section';
 import Card from '../Card';
 import FadeIn from '../FadeIn';
@@ -9,6 +9,7 @@ import { teamMembers } from '@/lib/data';
 
 export default function About() {
   const ref = useRef(null);
+  const [imageErrors, setImageErrors] = useState<{ [key: string]: boolean }>({});
   // margin: large negative value to trigger much earlier when scrolling up
   // amount: 0.1 means trigger when only 10% visible
   const isInView = useInView(ref, { once: false, amount: 0.1, margin: "0px 0px -500px 0px" });
@@ -86,8 +87,24 @@ export default function About() {
             {teamMembers.map((member, index) => (
               <div key={index} className="relative z-10">
                 <Card className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left space-y-4 md:space-y-0 md:space-x-6 h-full bg-white/80 backdrop-blur-sm">
-                  <div className="w-20 h-20 bg-gray-200 rounded-full flex-shrink-0 flex items-center justify-center text-2xl font-bold text-gray-400">
-                    {member.name.charAt(0)}
+                  <div className="w-20 h-20 rounded-full flex-shrink-0 overflow-hidden bg-gray-200 flex items-center justify-center">
+                    {member.name === "Lion Hereqi" && !imageErrors['lion'] ? (
+                      <img 
+                        src="/team/Lion_Hereqi.jpeg" 
+                        alt="Lion Hereqi" 
+                        className="w-full h-full object-cover"
+                        onError={() => setImageErrors(prev => ({ ...prev, lion: true }))}
+                      />
+                    ) : member.name === "Mustafa Sagaaro" && !imageErrors['mustafa'] ? (
+                      <img 
+                        src="/team/Mustafa_Sagaaro.jpeg" 
+                        alt="Mustafa Sagaaro" 
+                        className="w-full h-full object-cover"
+                        onError={() => setImageErrors(prev => ({ ...prev, mustafa: true }))}
+                      />
+                    ) : (
+                      <span className="text-2xl font-bold text-gray-400">{member.name.charAt(0)}</span>
+                    )}
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-1 flex items-center justify-center md:justify-start">
