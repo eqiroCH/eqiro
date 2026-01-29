@@ -90,14 +90,14 @@ export default function About() {
                   <div className="w-20 h-20 rounded-full flex-shrink-0 overflow-hidden bg-gray-200 flex items-center justify-center">
                     {member.name === "Lion Hereqi" && !imageErrors['lion'] ? (
                       <img 
-                        src="/team/Lion_Hereqi.jpeg" 
+                        src="/team/LION.png" 
                         alt="Lion Hereqi" 
                         className="w-full h-full object-cover"
                         onError={() => setImageErrors(prev => ({ ...prev, lion: true }))}
                       />
                     ) : member.name === "Mustafa Sagaaro" && !imageErrors['mustafa'] ? (
                       <img 
-                        src="/team/Mustafa_Sagaaro.jpeg" 
+                        src="/team/MUSTI.png" 
                         alt="Mustafa Sagaaro" 
                         className="w-full h-full object-cover"
                         onError={() => setImageErrors(prev => ({ ...prev, mustafa: true }))}

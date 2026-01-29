@@ -38,7 +38,7 @@ export default function NavBar() {
               </Link>
             ))}
             <Button href="#kontakt" variant="primary" className="py-2.5 px-6 text-sm shadow-blue-100 shadow-lg">
-              Erstgespräch
+              Kontakt
             </Button>
           </nav>
 
@@ -76,7 +76,7 @@ export default function NavBar() {
               </Link>
             ))}
             <Button href="#kontakt" variant="primary" className="w-full text-center mt-4" onClick={closeMenu}>
-              Erstgespräch vereinbaren
+              Kontakt
             </Button>
           </div>
         </div>

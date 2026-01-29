@@ -1,0 +1,22 @@
+# robots.txt für eqiro.ch
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://eqiro.ch/sitemap.xml
+
+# Crawl-delay für respektvollen Crawling
+Crawl-delay: 1
+
+# Block bestimmte Verzeichnisse (falls vorhanden)
+# Disallow: /admin/
+# Disallow: /api/
+
+# Erlaube wichtige Ressourcen
+Allow: /images/
+Allow: /screenshots/
+Allow: /team/
+Allow: /clients/
+
+
+

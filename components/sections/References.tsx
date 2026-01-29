@@ -68,7 +68,62 @@ function WebsitePreview({ url, title, screenshot }: { url: string; title: string
   );
 }
 
+function ProjectCard({ project, index }: { project: (typeof projects)[0]; index: number }) {
+  return (
+    <FadeIn key={project.id} delay={index * 0.1}>
+      <Card className="!p-0 flex flex-col h-full overflow-hidden group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+        <div className="relative bg-gray-100 border-b border-gray-200 aspect-video overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-6 bg-white/80 backdrop-blur-sm border-b border-gray-200 z-10 flex items-center px-3 gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-red-400"></div>
+            <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+            <div className="w-2 h-2 rounded-full bg-green-400"></div>
+          </div>
+          {project.url ? (
+            <WebsitePreview
+              url={project.url}
+              title={project.title}
+              screenshot={project.screenshot}
+            />
+          ) : (
+            <div className="w-full h-full pt-6 flex items-center justify-center bg-gray-50 text-gray-400 text-sm">
+              Vorschau nicht verfügbar
+            </div>
+          )}
+        </div>
+        <div className="p-4 md:p-6 flex flex-col flex-grow">
+          <div className="flex items-center justify-between mb-2 md:mb-3">
+            <h3 className="text-base md:text-xl font-bold text-gray-900">{project.title}</h3>
+            <span className="text-[10px] font-bold tracking-wider text-blue-600 uppercase bg-blue-50 px-2 py-1 rounded-full">
+              {project.category}
+            </span>
+          </div>
+          <p className="text-xs md:text-sm text-gray-600 leading-relaxed mb-3 md:mb-4 flex-grow">
+            {project.description}
+          </p>
+          {project.url && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors group-hover:underline"
+            >
+              Website besuchen
+              <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          )}
+        </div>
+      </Card>
+    </FadeIn>
+  );
+}
+
 export default function References() {
+  const [showMore, setShowMore] = useState(false);
+  const topThree = projects.slice(0, 3);
+  const rest = projects.slice(3);
+
   return (
     <Section 
       id="referenzen" 
@@ -77,63 +132,31 @@ export default function References() {
       background="gray"
     >
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-        {projects.map((project, index) => (
-          <FadeIn key={index} delay={index * 0.1}>
-            <Card className="!p-0 flex flex-col h-full overflow-hidden group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              {/* Browser Preview Window */}
-              <div className="relative bg-gray-100 border-b border-gray-200 aspect-video overflow-hidden">
-                {/* Fake Browser Bar */}
-                <div className="absolute top-0 left-0 right-0 h-6 bg-white/80 backdrop-blur-sm border-b border-gray-200 z-10 flex items-center px-3 gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                  <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                  <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                </div>
-                
-                {/* Progressive Loading Preview */}
-                {project.url ? (
-                  <WebsitePreview 
-                    url={project.url} 
-                    title={project.title}
-                    screenshot={project.screenshot}
-                  />
-                ) : (
-                  <div className="w-full h-full pt-6 flex items-center justify-center bg-gray-50 text-gray-400 text-sm">
-                    Vorschau nicht verfügbar
-                  </div>
-                )}
-              </div>
-
-              {/* Content */}
-              <div className="p-4 md:p-6 flex flex-col flex-grow">
-                <div className="flex items-center justify-between mb-2 md:mb-3">
-                  <h3 className="text-base md:text-xl font-bold text-gray-900">{project.title}</h3>
-                  <span className="text-[10px] font-bold tracking-wider text-blue-600 uppercase bg-blue-50 px-2 py-1 rounded-full">
-                    {project.category}
-                  </span>
-                </div>
-                
-                <p className="text-xs md:text-sm text-gray-600 leading-relaxed mb-3 md:mb-4 flex-grow">
-                  {project.description}
-                </p>
-
-                {project.url && (
-                  <a 
-                    href={project.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors group-hover:underline"
-                  >
-                    Website besuchen
-                    <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
-                )}
-              </div>
-            </Card>
-          </FadeIn>
+        {topThree.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
+        {showMore && rest.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={3 + index} />
         ))}
       </div>
+      {rest.length > 0 && (
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={() => setShowMore(!showMore)}
+            className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors"
+          >
+            {showMore ? 'Weniger anzeigen' : 'Mehr anzeigen'}
+            <svg
+              className={`w-4 h-4 transition-transform ${showMore ? 'rotate-180' : ''}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+      )}
     </Section>
   );
 }

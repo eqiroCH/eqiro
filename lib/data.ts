@@ -50,6 +50,34 @@ export const projects = [
     ]
   },
   {
+    id: "wowwash",
+    title: "Wow Wash Reinigung",
+    category: "Reinigung",
+    url: "https://wowwash.ch",
+    screenshot: "/screenshots/wowwash-screenshot.png",
+    description: "Website für eine Reinigungsfirma. Klare Darstellung der Leistungen und einfache Kontaktaufnahme.",
+    solution: "Eine übersichtliche Website, die Services und Vorteile der Reinigungsfirma klar präsentiert.",
+    benefits: [
+      "Klare Leistungsübersicht",
+      "Direkte Kontaktmöglichkeit",
+      "Mobil optimiert"
+    ]
+  },
+  {
+    id: "osteria-dei-poeti",
+    title: "Osteria Dei Poeti",
+    category: "Gastronomie",
+    url: "https://osteria-dei-poeti.netlify.app",
+    screenshot: "/screenshots/osteria-dei-poeti-screenshot.png",
+    description: "Elegante Website für ein italienisches Restaurant. Fokus auf Atmosphäre und kulinarische Erlebnisse.",
+    solution: "Eine ansprechende, benutzerfreundliche Website, die die authentische italienische Küche und das Ambiente des Restaurants hervorhebt.",
+    benefits: [
+      "Stilvolles Design",
+      "Optimierte Benutzerführung",
+      "Mobile-First Ansatz"
+    ]
+  },
+  {
     id: "baris-barbershop",
     title: "Baris Barbershop",
     category: "Barbershop",
@@ -146,5 +174,26 @@ export const teamMembers = [
     github: "https://github.com/mustafa-sagaaro",
     linkedin: "https://www.linkedin.com/in/mustafa-sagaaro-26166827a/",
     description: "Fokus auf komplexe Webanwendungen und saubere Code-Architektur."
+  }
+];
+
+export const testimonials = [
+  {
+    quote: "Die Zusammenarbeit war sehr unkompliziert und das Ergebnis überzeugt. Unsere Gäste finden uns jetzt viel einfacher online.",
+    author: "Eva Vogel-Degli Esposti",
+    company: "Salottino Restaurant",
+    role: "Inhaberin"
+  },
+  {
+    quote: "Genau das, was wir uns vorgestellt haben. Die Website lädt schnell und zeigt unser Restaurant so, wie es ist – authentisch und einladend. Sehr zufrieden mit dem Ergebnis.",
+    author: "Matteo Grossi",
+    company: "Osteria Dei Poeti",
+    role: "Geschäftsleiter"
+  },
+  {
+    quote: "Endlich eine Website, die unsere Leistungen klar zeigt. Die Zusammenarbeit war unkompliziert und Kunden melden sich jetzt vermehrt online bei uns.",
+    author: "Hassan Al Kinani",
+    company: "Wow Wash Reinigung",
+    role: "Inhaber"
   }
 ];

@@ -8,19 +8,19 @@ import Link from 'next/link';
 const faqs = [
   {
     question: "Wie lange dauert die Erstellung einer Website?",
-    answer: "Für einen einfachen Onepager benötigen wir in der Regel etwa 1-2 Wochen. Umfangreichere Firmen-Websites dauern etwa 3-5 Wochen, abhängig von Ihren Anforderungen und wie schnell wir Feedback erhalten."
+    answer: "Für einen einfachen Onepager benötigen wir in der Regel etwa 1-2 Wochen. Umfangreichere Firmen-Websites dauern etwa 3-5 Wochen, abhängig von deinen Anforderungen und wie schnell wir Feedback erhalten."
   },
   {
     question: "Was kostet eine Website bei euch?",
-    answer: "Jedes Projekt ist anders, daher erstellen wir individuelle Angebote. Ein professioneller Onepager startet oft im niedrigen vierstelligen Bereich. Wichtig für uns: Sie erhalten immer einen Festpreis vorab, ohne versteckte Nachkosten."
+    answer: "Jedes Projekt ist anders, daher erstellen wir individuelle Angebote. Ein professioneller Onepager startet oft im niedrigen vierstelligen Bereich. Wichtig für uns: Du erhältst immer einen Festpreis vorab, ohne versteckte Nachkosten."
   },
   {
     question: "Kann ich Texte und Bilder später selbst ändern?",
-    answer: "Ja, absolut. Wir bauen Ihre Website so auf, dass Sie einfache Änderungen selbst vornehmen können. Auf Wunsch bieten wir auch Wartungspakete ab CHF 50.–/Monat an, bei denen wir Updates und kleine Änderungen für Sie übernehmen."
+    answer: "Ja, absolut. Wir bauen deine Website so auf, dass du einfache Änderungen selbst vornehmen kannst. Auf Wunsch bieten wir auch Wartungspakete ab CHF 50.–/Monat an, bei denen wir Updates und kleine Änderungen für dich übernehmen."
   },
   {
     question: "Muss ich mich um Hosting und Domain kümmern?",
-    answer: "Wir unterstützen Sie beim Kauf der Domain (z.B. ihr-name.ch), jedoch kaufen Sie sie selbst, damit Sie rechtlich Ihnen gehört. Wir begleiten Sie dabei step-by-step. Die technische Einrichtung übernehmen wir. Auf Wunsch und gegen Aufpreis kümmern wir uns auch komplett um die Verwaltung."
+    answer: "Wir unterstützen dich beim Kauf der Domain (z.B. dein-name.ch), jedoch kaufst du sie selbst, damit sie rechtlich dir gehört. Wir begleiten dich dabei step-by-step. Die technische Einrichtung übernehmen wir. Auf Wunsch und gegen Aufpreis kümmern wir uns auch komplett um die Verwaltung."
   }
 ];
 
@@ -112,7 +112,7 @@ export default function FAQ() {
     }
     // For question 4 (index 3), show specific preview text
     if (index === 3) {
-      return "Wir unterstützen Sie beim Kauf der Domain (z.B. ihr-name.ch)";
+      return "Wir unterstützen dich beim Kauf der Domain (z.B. dein-name.ch)";
     }
     // Fallback for other questions
     const firstSentence = text.match(/^[^.!?]+[.!?]/);
@@ -126,12 +126,31 @@ export default function FAQ() {
     return text;
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     <Section 
       id="faq" 
       title="Häufige Fragen" 
-      subtitle="Alles, was Sie wissen müssen, bevor wir starten."
+        subtitle="Alles, was du wissen musst, bevor wir starten."
       background="white"
+        className="!pt-8 md:!pt-12"
     >
       <div className="max-w-3xl mx-auto space-y-6">
         {faqs.map((faq, index) => (
@@ -157,47 +176,50 @@ export default function FAQ() {
                 </svg>
               </button>
               
-              {/* Desktop: Always visible question */}
-              <h3 className="hidden md:block text-lg font-bold text-gray-900 mb-2">
-                {faq.question}
-              </h3>
-              
               {/* Mobile: Collapsible answer */}
               <div
                 className={`md:hidden overflow-hidden transition-all duration-300 ${
                   openIndex === index ? 'max-h-96 mt-3' : 'max-h-0'
                 }`}
               >
-                <p className="text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </p>
+              <p className="text-gray-600 leading-relaxed">
+                {faq.answer}
+              </p>
               </div>
               
-              {/* Desktop: Expandable answer with preview */}
-              <div className="hidden md:block">
+              {/* Desktop: Entire box clickable – expand/collapse on click */}
+              <div
+                className="hidden md:block w-full text-left cursor-pointer"
+                onClick={() => toggleDesktop(index)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleDesktop(index);
+                  }
+                }}
+              >
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {faq.question}
+                </h3>
                 <p className="text-gray-600 leading-relaxed">
                   {expandedDesktop.has(index) ? (
                     <>
                       {faq.answer}
                       {faq.answer.length > getPreviewText(faq.answer, index).length && (
-                        <button
-                          onClick={() => toggleDesktop(index)}
-                          className="ml-2 text-gray-500 hover:text-gray-700 font-medium text-sm transition-colors"
-                        >
+                        <span className="ml-2 text-blue-600/80 hover:text-blue-600 font-medium text-sm transition-colors">
                           Weniger anzeigen
-                        </button>
+                        </span>
                       )}
                     </>
                   ) : (
                     <>
                       {getPreviewText(faq.answer, index)}
                       {faq.answer.length > getPreviewText(faq.answer, index).length && (
-                        <button
-                          onClick={() => toggleDesktop(index)}
-                          className="ml-2 text-gray-500 hover:text-gray-700 font-medium text-sm transition-colors"
-                        >
+                        <span className="ml-2 text-blue-600/80 hover:text-blue-600 font-medium text-sm transition-colors">
                           Mehr anzeigen
-                        </button>
+                        </span>
                       )}
                     </>
                   )}
@@ -212,7 +234,7 @@ export default function FAQ() {
           <div className="text-center mt-12 pt-8 border-t border-gray-200 space-y-2">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="text-blue-600 hover:text-blue-800 font-semibold text-sm md:text-base transition-colors underline decoration-2 underline-offset-2 cursor-pointer"
+              className="text-blue-600 hover:text-blue-800 font-semibold text-sm md:text-base transition-colors cursor-pointer"
             >
               Noch Fragen offen?
             </button>
@@ -318,6 +340,7 @@ export default function FAQ() {
         </div>
       )}
     </Section>
+    </>
   );
 }
 
