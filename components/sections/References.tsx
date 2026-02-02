@@ -121,8 +121,10 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
 
 export default function References() {
   const [showMore, setShowMore] = useState(false);
+  const firstProject = projects.slice(0, 1);
+  const restMobile = projects.slice(1);
   const topThree = projects.slice(0, 3);
-  const rest = projects.slice(3);
+  const restDesktop = projects.slice(3);
 
   return (
     <Section 
@@ -131,32 +133,65 @@ export default function References() {
       subtitle="Websites, die nicht nur gut aussehen, sondern Probleme lösen."
       background="gray"
     >
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-        {topThree.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
-        ))}
-        {showMore && rest.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={3 + index} />
-        ))}
-      </div>
-      {rest.length > 0 && (
-        <div className="mt-8 flex justify-center">
-          <button
-            onClick={() => setShowMore(!showMore)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors"
-          >
-            {showMore ? 'Weniger anzeigen' : 'Mehr anzeigen'}
-            <svg
-              className={`w-4 h-4 transition-transform ${showMore ? 'rotate-180' : ''}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
+      {/* Mobile: Show 1 project initially */}
+      <div className="md:hidden">
+        <div className="grid grid-cols-1 gap-4">
+          {firstProject.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
+          ))}
+          {showMore && restMobile.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={1 + index} />
+          ))}
         </div>
-      )}
+        {restMobile.length > 0 && (
+          <div className="mt-6 flex justify-center">
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors"
+            >
+              {showMore ? 'Weniger anzeigen' : 'Mehr anzeigen'}
+              <svg
+                className={`w-4 h-4 transition-transform ${showMore ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Desktop: Show top 3, then rest on expand */}
+      <div className="hidden md:block">
+        <div className="grid grid-cols-3 gap-8">
+          {topThree.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
+          ))}
+          {showMore && restDesktop.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={3 + index} />
+          ))}
+        </div>
+        {restDesktop.length > 0 && (
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors"
+            >
+              {showMore ? 'Weniger anzeigen' : 'Mehr anzeigen'}
+              <svg
+                className={`w-4 h-4 transition-transform ${showMore ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+        )}
+      </div>
     </Section>
   );
 }

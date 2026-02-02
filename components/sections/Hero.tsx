@@ -20,7 +20,7 @@ export default function Hero() {
           </FadeIn>
 
           <FadeIn direction="up" delay={0.3}>
-            <div className="flex flex-col md:flex-row items-center justify-center space-y-3 md:space-y-0 md:space-x-8 mb-12 text-gray-700 font-medium">
+            <div className="flex flex-row flex-wrap items-center justify-center gap-4 md:gap-8 mb-12 text-gray-700 font-medium">
               <div className="flex items-center">
                 <span className="bg-blue-100 text-blue-600 p-1 rounded-full mr-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -178,9 +178,10 @@ export default function FAQ() {
               
               {/* Mobile: Collapsible answer */}
               <div
-                className={`md:hidden overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-96 mt-3' : 'max-h-0'
+                className={`md:hidden transition-all duration-300 ease-in-out ${
+                  openIndex === index ? 'max-h-96 opacity-100 mt-3' : 'max-h-0 opacity-0'
                 }`}
+                style={{ overflow: 'hidden' }}
               >
               <p className="text-gray-600 leading-relaxed">
                 {faq.answer}
