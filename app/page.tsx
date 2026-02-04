@@ -12,7 +12,7 @@ import FAQ from '@/components/sections/FAQ';
 import Clients from '@/components/sections/Clients';
 
 export const metadata: Metadata = {
-  title: 'Eqiro Websites',
+  title: 'Eqiro',
   description: 'Moderne Websites für kleine Unternehmen in Zürich. Individuelle Webentwicklung ohne Templates. Onepager, Business-Websites & Relaunches. Transparente Preise, schnelle Umsetzung.',
   keywords: [
     'Website erstellen Zürich',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     canonical: 'https://eqiro.ch',
   },
   openGraph: {
-    title: 'Eqiro Websites',
+    title: 'Eqiro',
     description: 'Moderne Websites für kleine Unternehmen in Zürich. Individuelle Webentwicklung ohne Templates.',
     url: 'https://eqiro.ch',
     siteName: 'Eqiro',

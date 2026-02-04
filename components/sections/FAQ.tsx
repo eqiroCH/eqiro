@@ -15,10 +15,6 @@ const faqs = [
     answer: "Jedes Projekt ist anders, daher erstellen wir individuelle Angebote. Ein professioneller Onepager startet oft im niedrigen vierstelligen Bereich. Wichtig für uns: Du erhältst immer einen Festpreis vorab, ohne versteckte Nachkosten."
   },
   {
-    question: "Kann ich Texte und Bilder später selbst ändern?",
-    answer: "Ja, absolut. Wir bauen deine Website so auf, dass du einfache Änderungen selbst vornehmen kannst. Auf Wunsch bieten wir auch Wartungspakete ab CHF 50.–/Monat an, bei denen wir Updates und kleine Änderungen für dich übernehmen."
-  },
-  {
     question: "Muss ich mich um Hosting und Domain kümmern?",
     answer: "Wir unterstützen dich beim Kauf der Domain (z.B. dein-name.ch), jedoch kaufst du sie selbst, damit sie rechtlich dir gehört. Wir begleiten dich dabei step-by-step. Die technische Einrichtung übernehmen wir. Auf Wunsch und gegen Aufpreis kümmern wir uns auch komplett um die Verwaltung."
   }
@@ -98,23 +94,11 @@ export default function FAQ() {
 
   // Get preview text for desktop (only first sentence)
   const getPreviewText = (text: string, index: number): string => {
-    // For first 3 questions, show only first sentence as specified
-    if (index < 3) {
-      const firstSentence = text.match(/^[^.!?]+[.!?]/);
-      if (firstSentence) {
-        return firstSentence[0].trim();
-      }
-      // Fallback: first sentence up to first period
-      const periodIndex = text.indexOf('.');
-      if (periodIndex > 0) {
-        return text.substring(0, periodIndex + 1);
-      }
-    }
-    // For question 4 (index 3), show specific preview text
-    if (index === 3) {
+    // For question 3 (index 2 - Hosting/Domain), show specific preview text
+    if (index === 2) {
       return "Wir unterstützen dich beim Kauf der Domain (z.B. dein-name.ch)";
     }
-    // Fallback for other questions
+    // For all other questions, show only first sentence
     const firstSentence = text.match(/^[^.!?]+[.!?]/);
     if (firstSentence) {
       return firstSentence[0].trim();
