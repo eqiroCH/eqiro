@@ -34,7 +34,7 @@ export default function Footer() {
               </svg>
             </a>
             <a 
-              href="https://www.instagram.com/eqiroch"
+              href="https://www.instagram.com/eqiro.ch"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"

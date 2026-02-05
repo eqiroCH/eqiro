@@ -9,7 +9,7 @@ export default function Hero() {
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn direction="up" delay={0.1}>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6 leading-tight">
-              Moderne Websites für dein Unternehmen – <span className="text-blue-600">schnell, klar und stark.</span>
+              Moderne Webentwicklung für dein Unternehmen – <span className="text-blue-600">schnell, klar und stark.</span>
             </h1>
           </FadeIn>
           

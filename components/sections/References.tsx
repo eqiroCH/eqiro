@@ -7,7 +7,7 @@ import FadeIn from '../FadeIn';
 import { projects } from '@/lib/data';
 
 // Component for progressive loading: shows placeholder until iframe loads
-function WebsitePreview({ url, title, screenshot }: { url: string; title: string; screenshot?: string }) {
+function WebsitePreview({ url, title, screenshot, eager = false }: { url: string; title: string; screenshot?: string; eager?: boolean }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -42,7 +42,7 @@ function WebsitePreview({ url, title, screenshot }: { url: string; title: string
           className={`w-[400%] h-[400%] origin-top-left transform scale-[0.25] border-0 pointer-events-none transition-opacity duration-500 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
-          loading="lazy"
+          loading={eager ? "eager" : "lazy"}
           scrolling="no"
           onLoad={() => setIsLoaded(true)}
           onError={() => setHasError(true)}
@@ -83,6 +83,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
               url={project.url}
               title={project.title}
               screenshot={project.screenshot}
+              eager={index < 3}
             />
           ) : (
             <div className="w-full h-full pt-6 flex items-center justify-center bg-gray-50 text-gray-400 text-sm">
