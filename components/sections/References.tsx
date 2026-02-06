@@ -7,16 +7,21 @@ import FadeIn from '../FadeIn';
 import { projects } from '@/lib/data';
 
 // Component for progressive loading: shows placeholder until iframe loads
-function WebsitePreview({ url, title, screenshot, eager = false }: { url: string; title: string; screenshot?: string; eager?: boolean }) {
+// On mobile, only screenshots are shown to prevent memory issues and page refreshes
+function WebsitePreview({ url, title, screenshot, eager = false, mobileOnly = false }: { url: string; title: string; screenshot?: string; eager?: boolean; mobileOnly?: boolean }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
+  // On mobile (mobileOnly=true), we only show screenshots - no iframes
+  // This prevents memory issues that cause automatic page refreshes
+  const showIframe = !mobileOnly;
+
   return (
     <div className="w-full h-full pt-6 bg-white relative">
-      {/* Screenshot Placeholder - always rendered, fades out when iframe loads */}
+      {/* Screenshot Placeholder - always rendered, fades out when iframe loads (only on desktop) */}
       <div 
         className={`absolute inset-0 pt-6 z-10 transition-opacity duration-500 ${
-          isLoaded && !hasError ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          isLoaded && !hasError && showIframe ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
       >
         {screenshot ? (
@@ -27,15 +32,21 @@ function WebsitePreview({ url, title, screenshot, eager = false }: { url: string
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
-            {/* Loading spinner */}
-            <div className="w-8 h-8 border-2 border-blue-200 border-t-blue-600 rounded-full animate-spin mb-3"></div>
-            <span className="text-xs text-gray-400">Lädt Vorschau...</span>
+            {/* Loading spinner - only show on desktop when iframe is loading */}
+            {showIframe ? (
+              <>
+                <div className="w-8 h-8 border-2 border-blue-200 border-t-blue-600 rounded-full animate-spin mb-3"></div>
+                <span className="text-xs text-gray-400">Lädt Vorschau...</span>
+              </>
+            ) : (
+              <span className="text-xs text-gray-400">Vorschau</span>
+            )}
           </div>
         )}
       </div>
 
-      {/* Iframe - loads in background */}
-      {url && !hasError && (
+      {/* Iframe - loads in background (only on desktop) */}
+      {url && !hasError && showIframe && (
         <iframe 
           src={url} 
           title={`Vorschau von ${title}`}
@@ -50,7 +61,7 @@ function WebsitePreview({ url, title, screenshot, eager = false }: { url: string
       )}
 
       {/* Error state */}
-      {hasError && (
+      {hasError && showIframe && (
         <div className="absolute inset-0 pt-6 flex items-center justify-center bg-gray-50 text-gray-400 text-sm z-10">
           Vorschau nicht verfügbar
         </div>
@@ -68,7 +79,7 @@ function WebsitePreview({ url, title, screenshot, eager = false }: { url: string
   );
 }
 
-function ProjectCard({ project, index, eager = false }: { project: (typeof projects)[0]; index: number; eager?: boolean }) {
+function ProjectCard({ project, index, eager = false, mobileOnly = false }: { project: (typeof projects)[0]; index: number; eager?: boolean; mobileOnly?: boolean }) {
   return (
     <FadeIn key={project.id} delay={index * 0.1}>
       <Card className="!p-0 flex flex-col h-full overflow-hidden group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
@@ -84,6 +95,7 @@ function ProjectCard({ project, index, eager = false }: { project: (typeof proje
               title={project.title}
               screenshot={project.screenshot}
               eager={eager}
+              mobileOnly={mobileOnly}
             />
           ) : (
             <div className="w-full h-full pt-6 flex items-center justify-center bg-gray-50 text-gray-400 text-sm">
@@ -134,14 +146,14 @@ export default function References() {
       subtitle="Websites, die nicht nur gut aussehen, sondern Probleme lösen."
       background="gray"
     >
-      {/* Mobile: Show 1 project initially */}
+      {/* Mobile: Show 1 project initially - only screenshots, no iframes to prevent memory issues */}
       <div className="md:hidden">
         <div className="grid grid-cols-1 gap-4">
           {firstProject.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} eager={index === 0} />
+            <ProjectCard key={project.id} project={project} index={index} eager={index === 0} mobileOnly={true} />
           ))}
           {showMore && restMobile.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={1 + index} eager={false} />
+            <ProjectCard key={project.id} project={project} index={1 + index} eager={false} mobileOnly={true} />
           ))}
         </div>
         {restMobile.length > 0 && (
