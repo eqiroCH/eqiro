@@ -68,7 +68,7 @@ function WebsitePreview({ url, title, screenshot, eager = false }: { url: string
   );
 }
 
-function ProjectCard({ project, index }: { project: (typeof projects)[0]; index: number }) {
+function ProjectCard({ project, index, eager = false }: { project: (typeof projects)[0]; index: number; eager?: boolean }) {
   return (
     <FadeIn key={project.id} delay={index * 0.1}>
       <Card className="!p-0 flex flex-col h-full overflow-hidden group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
@@ -83,7 +83,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
               url={project.url}
               title={project.title}
               screenshot={project.screenshot}
-              eager={index < 3}
+              eager={eager}
             />
           ) : (
             <div className="w-full h-full pt-6 flex items-center justify-center bg-gray-50 text-gray-400 text-sm">
@@ -138,10 +138,10 @@ export default function References() {
       <div className="md:hidden">
         <div className="grid grid-cols-1 gap-4">
           {firstProject.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard key={project.id} project={project} index={index} eager={index === 0} />
           ))}
           {showMore && restMobile.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={1 + index} />
+            <ProjectCard key={project.id} project={project} index={1 + index} eager={false} />
           ))}
         </div>
         {restMobile.length > 0 && (
@@ -168,10 +168,10 @@ export default function References() {
       <div className="hidden md:block">
         <div className="grid grid-cols-3 gap-8">
           {topThree.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard key={project.id} project={project} index={index} eager={index < 3} />
           ))}
           {showMore && restDesktop.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={3 + index} />
+            <ProjectCard key={project.id} project={project} index={3 + index} eager={false} />
           ))}
         </div>
         {restDesktop.length > 0 && (
