@@ -78,20 +78,6 @@ export const projects = [
     ]
   },
   {
-    id: "baris-barbershop",
-    title: "Baris Barbershop",
-    category: "Barbershop",
-    url: "https://baris-barbershop.netlify.app",
-    screenshot: "/screenshots/baris-barbershop-screenshot.png",
-    description: "Stilvolle Landingpage für einen Barbershop. Fokus auf Services und einfache Kontaktaufnahme.",
-    solution: "Eine stilvolle Landingpage mit klarem Fokus auf Dienstleistungen und Atmosphäre.",
-    benefits: [
-      "Starker visueller Auftritt",
-      "Einfache Übersicht der Services",
-      "Direkte Kontaktmöglichkeit"
-    ]
-  },
-  {
     id: "agenzy",
     title: "Agenzy",
     category: "Agentur",
