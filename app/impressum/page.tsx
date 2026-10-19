@@ -22,8 +22,7 @@ export default function Impressum() {
               Schweiz
             </p>
             <p>
-              E-Mail: <a href={`mailto:${agencyConfig.contactEmail}`}>{agencyConfig.contactEmail}</a><br />
-              Telefon: {agencyConfig.contactPhone}
+              E-Mail: <a href={`mailto:${agencyConfig.contactEmail}`}>{agencyConfig.contactEmail}</a>
             </p>
 
             <h3>Haftungsausschluss</h3>

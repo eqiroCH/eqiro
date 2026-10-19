@@ -95,7 +95,6 @@ export default function RootLayout({
     url: siteUrl,
     logo: `${siteUrl}/logo.svg`,
     image: `${siteUrl}/logo.svg`,
-    telephone: agencyConfig.contactPhone,
     email: agencyConfig.contactEmail,
     address: {
       "@type": "PostalAddress",
@@ -137,7 +136,7 @@ export default function RootLayout({
     logo: `${siteUrl}/logo.svg`,
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: agencyConfig.contactPhone,
+      email: agencyConfig.contactEmail,
       contactType: "customer service",
       areaServed: "CH",
       availableLanguage: ["German", "English"],

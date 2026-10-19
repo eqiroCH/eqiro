@@ -33,8 +33,7 @@ Dies ist eine vollständige, produktionsreife Website für eine kleine Webagentu
 In der Datei `lib/agencyConfig.ts` kannst du zentrale Einstellungen ändern:
 - Agenturname
 - Slogan
-- Kontakt-Email & Telefon
-- WhatsApp-Link
+- Kontakt-Email
 - Standort
 
 ### Inhalte (Texte, Preise, Projekte)
